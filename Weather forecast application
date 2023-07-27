@@ -1,0 +1,28 @@
+def get_weather_data(city):
+    # This is a simple dictionary with weather data for different cities
+    weather_data = {
+        "london": {"description": "Cloudy", "temperature": 22, "humidity": 75, "wind_speed": 10},
+        "new york": {"description": "Sunny", "temperature": 28, "humidity": 60, "wind_speed": 5},
+        "tokyo": {"description": "Rainy", "temperature": 18, "humidity": 90, "wind_speed": 15}
+        # Add more cities and weather data as needed
+    }
+
+    return weather_data.get(city.lower())
+
+def display_weather(city, data):
+    if data:
+        print(f"\nWeather in {city.title()}:")
+        print(f"Description: {data['description']}")
+        print(f"Temperature: {data['temperature']} °C")
+        print(f"Humidity: {data['humidity']}%")
+        print(f"Wind Speed: {data['wind_speed']} m/s")
+    else:
+        print("City not found in the weather database.")
+
+def main():
+    city = input("Enter the name of a city: ")
+    weather_data = get_weather_data(city)
+    display_weather(city, weather_data)
+
+if __name__ == "__main__":
+    main()
